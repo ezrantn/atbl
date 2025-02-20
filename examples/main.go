@@ -15,6 +15,7 @@ func main() {
 	table.AddRow("2", "Rebecca R. Edney", "865-475-4171", "RebeccaREdney@armyspy.com", "12")
 
 	fmt.Println(table.Render())
+	fmt.Println(atbl.Colorize(table.Render(), atbl.Red))
 
 	// Example with numeric table
 	// numericTable := atbl.NewNumeric("ID", "Item", "Price")
