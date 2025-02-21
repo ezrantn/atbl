@@ -153,12 +153,12 @@ table.SetBorder(atbl.UnicodeBorder)
 
 If you want to add color to your table, use the `Colorize` method. This will enable ANSI color codes in the rendered output.
 
-Currently we provide these colors:
+**Available Colors:**
 
-- Green
-- Yellow
-- Blue
-- Red
+- Text: `Black`, `Red`, `Green`, `Yellow`, `Blue`, `Magenta`, `Cyan`, `White`
+- Bright Text: `BrightBlack`, `BrightRed`, `BrightGreen`, `BrightYellow`, `BrightBlue`, `BrightMagenta`, `BrightCyan`, `BrightWhite`
+- Background: `BgBlack`, `BgRed`, `BgGreen`, `BgYellow`, `BgBlue`, `BgMagenta`, `BgCyan`, `BgWhite`
+- Bright Background: `BgBrightBlack`, `BgBrightRed`, `BgBrightGreen`, `BgBrightYellow`, `BgBrightBlue`, `BgBrightMagenta`, `BgBrightCyan`, `BgBrightWhite`
 
 **Example**
 
@@ -166,9 +166,21 @@ Currently we provide these colors:
 fmt.Println(atbl.Colorize(table.Render(), atbl.Red))
 ```
 
+```go
+fmt.Println(atbl.Colorize(table.Render(), atbl.BrightRed))
+```
+
+```go
+fmt.Println(atbl.Colorize(table.Render(), atbl.BgRed))
+```
+
+```go
+fmt.Println(atbl.Colorize(table.Render(), atbl.BgBrightRed))
+```
+
 ## License
 
-This tool is open-source and available under the MIT License.
+This tool is open-source and available under the [MIT License](https://github.com/ezrantn/atbl/blob/main/LICENSE).
 
 ## Contributing
 
