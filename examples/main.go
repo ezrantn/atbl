@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-
+	"log"
 	"github.com/ezrantn/atbl"
 )
 
@@ -16,10 +16,14 @@ func main() {
 
 	fmt.Println(atbl.Colorize(table.Render(), atbl.Red))
 
-	// Example with numeric table
-	// numericTable := atbl.NewNumeric("ID", "Item", "Price")
-	// numericTable.AddRow("1", "Widget", "9.99")
-	// numericTable.AddRow("2", "Gadget", "24.99")
+	if err := table.ExportToMarkdown("output.md"); err != nil {
+		log.Fatal("Failed to export to Markdown:", err)
+	}
 
-	// fmt.Println(numericTable.Render())
+	fmt.Println("Table exported to output.md")
+
+	if err := table.ExportToCSV("output.csv"); err != nil {
+		log.Fatal("Failed to export to CSV:", err)
+	}
+	fmt.Println("Table exported to output.csv")
 }

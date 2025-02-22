@@ -10,33 +10,33 @@ type BorderStyle struct {
 // Basic ASCII border
 var BasicBorder = BorderStyle{
 	Top: func(widths []int) string {
-		return "+ " + strings.Join(generateLine(widths, "-"), " + ") + " +\n"
+		return "+" + strings.Join(generateLine(widths, "-"), "+") + "+\n"
 	},
 	Middle: func(widths []int) string {
-		return "+ " + strings.Join(generateLine(widths, "-"), " + ") + " +\n"
+		return "+" + strings.Join(generateLine(widths, "-"), "+") + "+\n"
 	},
 	Bottom: func(widths []int) string {
-		return "+ " + strings.Join(generateLine(widths, "-"), " + ") + " +\n"
+		return "+" + strings.Join(generateLine(widths, "-"), "+") + "+\n"
 	},
-	Left:      "| ",
-	Right:     " |",
-	Separator: " | ",
+	Left:      "|",
+	Right:     "|",
+	Separator: "|",
 }
 
 // Unicode Border
 var UnicodeBorder = BorderStyle{
 	Top: func(widths []int) string {
-		return "╔ " + strings.Join(generateLine(widths, "═"), " ╦ ") + " ╗\n"
+		return "╔" + strings.Join(generateLine(widths, "═"), "╦") + "╗\n"
 	},
 	Middle: func(widths []int) string {
-		return "╠ " + strings.Join(generateLine(widths, "═"), " ╬ ") + " ╣\n"
+		return "╠" + strings.Join(generateLine(widths, "═"), "╬") + "╣\n"
 	},
 	Bottom: func(widths []int) string {
-		return "╚ " + strings.Join(generateLine(widths, "═"), " ╩ ") + " ╝\n"
+		return "╚" + strings.Join(generateLine(widths, "═"), "╩") + "╝\n"
 	},
-	Left:      "║ ",
-	Right:     " ║",
-	Separator: " ║ ",
+	Left:      "║",
+	Right:     "║",
+	Separator: "║",
 }
 
 func generateLine(widths []int, char string) []string {

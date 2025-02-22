@@ -82,35 +82,6 @@ fmt.Println(table.Render())
 + --- + ------------------ + -------------- + --------------------------- + ----- +
 ```
 
-### Creating Numeric Tables
-
-For tables with numeric data, you can use the `NewNumeric` function, which automatically right-aligns the last column.
-
-**Example**
-
-```go
-// Create a numeric table with headers
-table := atbl.NewNumeric("ID", "Name", "Age", "Salary")
-
-// Add rows of data
-table.AddRow("1", "John Doe", "30", "100000")
-table.AddRow("2", "Jane Smith", "25", "80000")
-
-// Render and print the table
-fmt.Println(table.Render())
-```
-
-**Output**
-
-```bash
-+ ---- + ----------- + ----- + -------- +
-|  ID  |  Name       |  Age  |  Salary  | 
-+ ---- + ----------- + ----- + -------- +
-|  1   |  John Doe   |   30  |  100000  | 
-|  2   |  Jane Smith |   25  |   80000  | 
-+ ---- + ----------- + ----- + -------- +
-```
-
 ### Customizing Table Borders
 
 You can change the border style of the table using the `SetBorder` method. The package provides predefined border styles like `BasicBorder` and `UnicodeBorder`.

@@ -18,7 +18,6 @@ type Table struct {
 
 // Creates a simple table with headers. Uses BasicBorder by default
 func New(headers ...string) *Table {
-	// Initialize all alignments to Left by default
 	alignments := make([]string, len(headers))
 	for i := range alignments {
 		alignments[i] = Left
@@ -29,17 +28,6 @@ func New(headers ...string) *Table {
 		alignments: alignments,
 		border:     BasicBorder,
 	}
-}
-
-// Creates a table with right-aligned numeric columns
-func NewNumeric(headers ...string) *Table {
-	t := New(headers...)
-	// Right-align the last column by default (usually contains numbers)
-	if len(headers) > 0 {
-		t.alignments[len(headers)-1] = Right
-	}
-	
-	return t
 }
 
 // Simple functions with clear purposes

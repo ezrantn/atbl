@@ -1,17 +1,20 @@
 package atbl
 
-import "fmt"
+import "strings"
 
 func formatCell(text string, width int, align string) string {
+	padding := width - len(text)
+	
 	switch align {
 	case Left:
-		return fmt.Sprintf(" %-*s ", width, text)
+		return " " + text + strings.Repeat(" ", padding) + " "
 	case Right:
-		return fmt.Sprintf(" %*s ", width, text)
+		return " " + strings.Repeat(" ", padding) + text + " "
 	case Center:
-		padding := (width - len(text)) / 2
-		return fmt.Sprintf(" %*s%-*s ", padding, text, padding, "")
+		leftPad := padding / 2
+		rightPad := padding - leftPad
+		return " " + strings.Repeat(" ", leftPad) + text + strings.Repeat(" ", rightPad) + " "
 	default:
-		return fmt.Sprintf(" %-*s ", width, text)
+		return " " + text + strings.Repeat(" ", padding) + " "
 	}
 }

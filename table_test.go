@@ -2,6 +2,7 @@ package atbl
 
 import (
 	"testing"
+	"strings"
 )
 
 func TestNewTable(t *testing.T) {
@@ -22,26 +23,6 @@ func TestNewTable(t *testing.T) {
 		if alignment != Left {
 			t.Errorf("Expected default alignment to be %s, got %s", Left, alignment)
 		}
-	}
-}
-
-func TestNewNumericTable(t *testing.T) {
-	headers := []string{"Name", "Age", "Salary"}
-	table := NewNumeric(headers...)
-
-	if len(table.headers) != len(headers) {
-		t.Errorf("Expected %d headers, got %d", len(headers), len(table.headers))
-	}
-
-	for i, header := range headers {
-		if table.headers[i] != header {
-			t.Errorf("Expected header %s, got %s", header, table.headers[i])
-		}
-	}
-
-	// Check that the last column is right-aligned
-	if table.alignments[len(headers)-1] != Right {
-		t.Errorf("Expected last column to be right-aligned, got %s", table.alignments[len(headers)-1])
 	}
 }
 
@@ -74,52 +55,27 @@ func TestAddRow(t *testing.T) {
 	}
 }
 
-// func TestRender(t *testing.T) {
-// 	headers := []string{"Name", "Age", "Occupation"}
-// 	table := New(headers...)
+func TestRender(t *testing.T) {
+	headers := []string{"Name", "Age", "Occupation"}
+	table := New(headers...)
 
-// 	table.AddRow("John Doe", "30", "Engineer")
-// 	table.AddRow("Jane Doe", "25", "Designer")
+	table.AddRow("John Doe", "30", "Engineer")
+	table.AddRow("Jane Doe", "25", "Designer")
 
-// 	expected := `
-// +----------+-----+------------+
-// | Name     | Age | Occupation |
-// +----------+-----+------------+
-// | John Doe | 30  | Engineer   |
-// | Jane Doe | 25  | Designer   |
-// +----------+-----+------------+
-// `
+	expected := `
++----------+-----+------------+
+| Name     | Age | Occupation |
++----------+-----+------------+
+| John Doe | 30  | Engineer   |
+| Jane Doe | 25  | Designer   |
++----------+-----+------------+
+`
 
-// 	// Remove the first newline character for comparison
-// 	expected = strings.TrimSpace(expected)
-// 	actual := strings.TrimSpace(table.Render())
+	// Remove the first newline character for comparison
+	expected = strings.TrimSpace(expected)
+	actual := strings.TrimSpace(table.Render())
 
-// 	if actual != expected {
-// 		t.Errorf("Expected:\n%s\nGot:\n%s", expected, actual)
-// 	}
-// }
-
-// func TestRenderWithAlignment(t *testing.T) {
-// 	headers := []string{"Name", "Age", "Salary"}
-// 	table := NewNumeric(headers...)
-
-// 	table.AddRow("John Doe", "30", "100000")
-// 	table.AddRow("Jane Doe", "25", "80000")
-
-// 	expected := `
-// +----------+-----+--------+
-// | Name     | Age | Salary |
-// +----------+-----+--------+
-// | John Doe |  30 | 100000 |
-// | Jane Doe |  25 |  80000 |
-// +----------+-----+--------+
-// `
-
-// 	// Remove the first newline character for comparison
-// 	expected = strings.TrimSpace(expected)
-// 	actual := strings.TrimSpace(table.Render())
-
-// 	if actual != expected {
-// 		t.Errorf("Expected:\n%s\nGot:\n%s", expected, actual)
-// 	}
-// }
+	if actual != expected {
+		t.Errorf("Expected:\n%s\nGot:\n%s", expected, actual)
+	}
+}
