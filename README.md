@@ -71,7 +71,7 @@ table.SetAlignment(4, atbl.Right)
 // Add rows of data
 table.AddRow("1", "Newton G. Goetz", "252-585-5166", "NewtonGGoetz@dayrep.com", "10")
 table.AddRow("2", "Rebecca R. Edney", "865-475-4171", "RebeccaREdney@armyspy.com", "12")
-****
+
 // Render and print the table
 fmt.Println(table.Render())
 ```
@@ -138,29 +138,29 @@ If you want to add color to your table, use the `Colorize` method. This will ena
 
 **Example**
 
-Text Color:
+- Text Color:
 
-```go
-fmt.Println(atbl.Colorize(table.Render(), atbl.Red))
-```
+    ```go
+    fmt.Println(atbl.Colorize(table.Render(), atbl.Red))
+    ```
 
-Bright Text Color:
+- Bright Text Color:
 
-```go
-fmt.Println(atbl.Colorize(table.Render(), atbl.BrightRed))
-```
+    ```go
+    fmt.Println(atbl.Colorize(table.Render(), atbl.BrightRed))
+    ```
 
-Background:
+- Background Color:
 
-```go
-fmt.Println(atbl.Colorize(table.Render(), atbl.BgRed))
-```
+    ```go
+    fmt.Println(atbl.Colorize(table.Render(), atbl.BgRed))
+    ```
 
-Bright Background:
+- Bright Background Color:
 
-```go
-fmt.Println(atbl.Colorize(table.Render(), atbl.BgBrightRed))
-```
+    ```go
+    fmt.Println(atbl.Colorize(table.Render(), atbl.BgBrightRed))
+    ```
 
 ## License
 
