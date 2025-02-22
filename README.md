@@ -162,17 +162,25 @@ If you want to add color to your table, use the `Colorize` method. This will ena
 
 **Example**
 
+Text Color:
+
 ```go
 fmt.Println(atbl.Colorize(table.Render(), atbl.Red))
 ```
+
+Bright Text Color:
 
 ```go
 fmt.Println(atbl.Colorize(table.Render(), atbl.BrightRed))
 ```
 
+Background:
+
 ```go
 fmt.Println(atbl.Colorize(table.Render(), atbl.BgRed))
 ```
+
+Bright Background:
 
 ```go
 fmt.Println(atbl.Colorize(table.Render(), atbl.BgBrightRed))
