@@ -1,4 +1,9 @@
-# [@ezrantn/atbl](https://github.com/ezrantn/atbl)
+<div align="center"> 
+
+<h1>atbl 🏓</h1>
+<h3><i>ASCII Simple Table Generator</i></h3>
+
+</div>
 
 > [!WARNING]
 > Work in progress!
@@ -66,7 +71,7 @@ table.SetAlignment(4, atbl.Right)
 // Add rows of data
 table.AddRow("1", "Newton G. Goetz", "252-585-5166", "NewtonGGoetz@dayrep.com", "10")
 table.AddRow("2", "Rebecca R. Edney", "865-475-4171", "RebeccaREdney@armyspy.com", "12")
-
+****
 // Render and print the table
 fmt.Println(table.Render())
 ```
